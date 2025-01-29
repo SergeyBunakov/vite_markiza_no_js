@@ -1,0 +1,21 @@
+<svg
+        role="img"
+        aria-label="X logo"
+        width="32"
+        height="32"
+        viewBox="0 0 128 128"
+        xmlns="http://www.w3.org/2000/svg"
+>
+    <circle
+            class="transition-colors group-hover:fill-green-400"
+            cx="64"
+            cy="64"
+            r="64"
+            fill="#D9D9D9"
+    />
+    <path
+            class="group-hover:fill-white"
+            d="M86.8918 28.25H99.0219L72.5243 58.5334L103.698 99.75H79.285L60.1647 74.7536L38.2929 99.75H26.1627L54.5069 67.3565L24.5938 28.25H49.6199L66.9004 51.0974L86.8918 28.25ZM82.6337 92.4904H89.3555L45.9716 35.1301H38.7584L82.6337 92.4904Z"
+            fill="#1B1B1B"
+    />
+</svg>

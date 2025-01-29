@@ -1,0 +1,175 @@
+/*@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');*/
+@import 'tailwindcss';
+@config "../../tailwind.config.ts";
+/*@tailwind base;*/
+/*@tailwind components;*/
+/*@tailwind utilities;*/
+
+@layer base {
+    body {
+        @apply text-secondary font-primary text-[17px] leading-8;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply text-primary leading-[120%];
+    }
+
+    .h1 {
+        @apply text-[2.25rem] xl:text-[4rem] font-semibold capitalize;
+    }
+
+    .h2 {
+        @apply text-[30px] xl:text-[44px] font-semibold capitalize tracking-[0.44px];
+    }
+
+    .h3 {
+        @apply text-[20px] xl:text-[26px] font-semibold;
+    }
+
+    .h4 {
+        @apply text-[20px] xl:text-[26px] font-semibold capitalize;
+    }
+
+    .btn {
+        @apply rounded-[12px] uppercase tracking-[1.02px] flex items-center justify-center transition-all;
+    }
+
+    .btn-sm {
+        @apply h-14 px-10;
+    }
+
+    .btn-lg {
+        @apply h-16 px-[50px];
+    }
+
+    .btn-accent {
+        @apply bg-accent text-white hover:bg-accent-hover;
+    }
+
+    .btn-white {
+        @apply bg-white text-secondary hover:bg-white/90;
+    }
+
+    .btn-outline {
+        @apply bg-transparent border-2 border-accent text-secondary hover:bg-accent hover:border-transparent hover:text-white;
+    }
+
+}
+
+@layer components {
+    /* Progress Bar and Scroll to Top Button */
+    html {
+        scroll-behavior: smooth;
+    }
+    #progress {
+        position: fixed;
+        bottom: 20px;
+        right: 10px;
+        height: 50px;
+        width: 50px;
+        display: none;
+        place-items: center;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+    }
+
+    #progress > span {
+        color: #806D61;
+    }
+
+    #progress-value {
+        display: block;
+        height: calc(100% - 12px);
+        width: calc(100% - 12px);
+        background-color: #fff;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;;
+        border-radius: 50%;;
+        display: grid;
+        place-items: center;
+        /*font-size: 35px;*/
+        /*color: #001a2e;*/
+    }
+
+    .progress-bar {
+        background: #EE7828;
+        height: 10px;
+        width: 0%;
+        position: fixed;
+        top: 0;
+        z-index: 100;
+    }
+
+
+    /* Tabs */
+    .tab-trigger {
+        border: 1px solid #806D61;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        border-radius: 12px;
+        padding: 0.25rem 1.25rem;
+        font-weight: 600;
+    }
+
+    .tab-trigger.active {
+        background-color: #EE7828;
+        color: #fef9f9;
+        outline: none;
+    }
+
+    /* Accordion */
+    .accordion-item.active > .accordion-content {
+        display: block;
+    }
+
+    .accordion-item.active .accordion-img {
+        --tw-rotate: 180deg;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    }
+
+    /* ToolTips */
+    [data-tooltip] {
+        text-align: center;
+        /*font-weight: 700;*/
+        position: relative; /* Відносне позиціонування */
+    }
+
+    [data-tooltip]::after {
+        content: attr(data-tooltip); /* Виводимо текст */
+        position: absolute; /* Абсолютне позиціонування */
+        width: 120px; /* Ширина підказки */
+        left: -45px;
+        top: 0; /* Положення підказки */
+        background: #bbf7d0; /* Колір фону */
+        border-radius: 12px;
+        color: #1B1B1B; /* Колір тексту */
+        padding: 0.5em; /* Поля навколо тексту */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметри тіні */
+        pointer-events: none; /* Підказка */
+        opacity: 0; /* Підказка невидима */
+        transition: 0.3s; /* Час появи підказки */
+    }
+
+    [data-tooltip]:hover::after {
+        opacity: 1; /* Показуємо підказку */
+        top: 2em; /* Положення підказки */
+    }
+}
+
+@layer utilities {
+    .span__active {
+        @apply leading-[22px] relative text-base font-normal text-white md:text-black after:absolute after:-bottom-1 after:left-0 after:h-[1px] after:w-full after:scale-0 after:bg-white after:md:bg-black after:transition-transform hover:after:scale-100
+    }
+
+    .toggle-btn {
+        @apply [&>div::before]:translate-y-0 [&>div::before]:rotate-45 [&>div::after]:translate-y-0 [&>div::after]:-rotate-45 [&>div]:bg-transparent [&>div]:rotate-[720deg]
+    }
+}
